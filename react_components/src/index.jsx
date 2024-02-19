@@ -1,4 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client"
+import { MyForm } from "./MyForm";
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+createRoot(document.getElementById("root")).render(<MyForm />);

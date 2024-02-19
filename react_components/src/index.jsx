@@ -1,4 +1,4 @@
 import { createRoot } from "react-dom/client"
-import { MyForm } from "./MyForm";
+import { InteractiveWelcome } from "./InteractiveWelcome";
 
-createRoot(document.getElementById("root")).render(<MyForm />);
+createRoot(document.getElementById("root")).render(<InteractiveWelcome />);

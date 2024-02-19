@@ -1,4 +1,8 @@
 import { createRoot } from "react-dom/client"
-import { InteractiveWelcome } from "./InteractiveWelcome";
+import { Login } from "./Login";
 
-createRoot(document.getElementById("root")).render(<InteractiveWelcome />);
+function printData(loginData) {
+  console.log(loginData);
+}
+
+createRoot(document.getElementById("root")).render(<Login onLogin={printData} />);

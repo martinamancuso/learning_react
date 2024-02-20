@@ -1,8 +1,9 @@
 import { createRoot } from "react-dom/client"
-import { Login } from "./Login";
+import { UncontrolledLogin } from "./UncontrolledLogin";
 
-function printData(loginData) {
-  console.log(loginData);
-}
+// function printData(loginData) {
+//   console.log(loginData);
+// }
 
-createRoot(document.getElementById("root")).render(<Login onLogin={printData} />);
+// createRoot(document.getElementById("root")).render(<Login onLogin={printData} />);
+createRoot(document.getElementById("root")).render(<UncontrolledLogin />)

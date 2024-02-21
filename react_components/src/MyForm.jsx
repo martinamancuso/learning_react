@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // function createData() {
 //   return {
@@ -18,6 +18,22 @@ export function MyForm() {
     password: "",
     session: false
   });
+
+  const mountedRef = useRef(false)
+
+  const inputRef = useRef(null)
+
+    useEffect(() => {
+      if(!mountedRef.current) {
+        mountedRef.current = true
+        console.log("Mounting for the first time")
+      } else {
+        console.log("Mounting again for debug purposes")
+      }
+
+      inputRef.current?.focus()
+    }, [])
+  
 
   // per non ripetere lo stesso codice per la creazione di oggetti, si può valutare una
   // alternativa: avendo creato la funzione 'createData()', si passa direttamente la funzione a 'useState()'
@@ -78,10 +94,12 @@ export function MyForm() {
     });
   }
 
+  console.log(inputRef)
+
   return (
     <div>
       <h1>My Form</h1>
-      <input name="username" value={data.username} onChange={handleInputChange} />
+      <input ref={inputRef} name="username" value={data.username} onChange={handleInputChange} />
       <input name="password" type="password" value={data.password} onChange={handleInputChange} />
       <input name="session" type="checkbox" checked={data.session} onChange={handleInputChange}/>
       

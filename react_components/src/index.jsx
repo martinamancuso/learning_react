@@ -1,9 +1,9 @@
 import { createRoot } from "react-dom/client"
-import { UncontrolledLogin } from "./UncontrolledLogin";
+import { MyForm } from "./MyForm";
 
 // function printData(loginData) {
 //   console.log(loginData);
 // }
 
 // createRoot(document.getElementById("root")).render(<Login onLogin={printData} />);
-createRoot(document.getElementById("root")).render(<UncontrolledLogin />)
+createRoot(document.getElementById("root")).render(<MyForm />)

@@ -1,4 +1,4 @@
 import { createRoot } from "react-dom/client";
-import { CounterRef } from "./components/CounterRef";
+import { App } from "./components/App";
 
-createRoot(document.getElementById("root")).render(<CounterRef />);
+createRoot(document.getElementById("root")).render(<App />);

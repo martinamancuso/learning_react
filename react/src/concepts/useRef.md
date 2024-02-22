@@ -1,9 +1,55 @@
+# ref()
+
+Utilizzo di useRef() per creare una mutable variable.
+
+Esempio di lettura e scrittura:
+
+```js
+// mountedRef è una variabile booleana
+// con valore iniziale "false"
+const mountedRef = useRef(false)
+
+useEffect(() => {
+  // qui leggo il valore della variabile
+  if(!mountedRef.current) {
+    // qui imposto il valore della variabile
+    mountedRef.current = true
+  }
+}, [])
+```
+
+Esempio di utilizzo con un elemento del DOM:
+
+```js
+// inputRef è una variabile che può essere
+// "null" (valore iniziale) o un elemento del DOM
+const inputRef = useRef(false)
+
+useEffect(() => {
+  // qui, se inputRef non è null (e quindi è
+  // l'elemento del DOM) allora chiamo il suo 
+  // metodo ".focus()"
+  inputRef.current?.focus()
+}, [])
+```
+
+```jsx
+// qui assegno a inputRef l'elemento del DOM
+return (
+  <input ref={inputRef} name="username" /* ... */ />
+)
+```
+
+
 Obiettivi useRef()
+
 
 //
 
+
 Obiettivo useRef() #1
-- Creare un riferimento ad un elemento DOM di interesse
+
+- Creare un riferimento ad un elemento DOM
 
 * 2 Macro-Step
 
@@ -27,12 +73,16 @@ Obiettivo useRef() #1
   3. chiamiamo il metodo 'focus()' sul riferimento al nodo DOM, 
     dal momento che la proprietà corrente di 'inputRef' conterrà un riferimento ad un elemento DOM.
 
+
 //
 
+
 Obiettivo useRef() #2
-- Contenere valori tra un rendering e l'altro,
-  valori che verranno memorizzati, 
-  che non causeranno il re-rendering del componente, al loro variare,
-  e che conterranno informazioni riguardo al fatto che il componente sia già stato montato o meno.
+
+- Creare una mutable variable
+
+  - memorizzarne il valore tra un rendering e l'altro
+  - senza causare il re-rendering del componente, al loro variare
+
 
 ('MyForm.jsx')

@@ -1,14 +1,4 @@
 import { createRoot } from "react-dom/client";
-import { StrictMode } from "react";
-import { MyComponent } from "./MyComponent";
+import { CounterRef } from "./components/CounterRef";
 
-// function printData(loginData) {
-//   console.log(loginData);
-// }
-
-// createRoot(document.getElementById("root")).render(<Login onLogin={printData} />);
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <MyComponent />
-  </StrictMode>
-);
+createRoot(document.getElementById("root")).render(<CounterRef />);

@@ -57,5 +57,4 @@ Questo permette di avere più moduli con classi con lo stesso nome.
 
 //
 
-'Inline style' in React, come in HTML 
-
+'Inline style' in React, come in HTML > StyleComponent.jsx

@@ -24,7 +24,7 @@ export function TodoList() {
   }
 
   function removeTodo(index) {
-    console.log(index);
+    setTodos(todos.filter((todo, todoIndex) => todoIndex !== index))
   }
 
   return (
@@ -32,7 +32,7 @@ export function TodoList() {
       <ul>
         {todos.map((todo, index) => (
           <li key={index}>
-            {todo}<button onClick={() => removeTodo(index)}>Remove Todo</button>
+            {todo} <button onClick={() => removeTodo(index)}>Remove Todo</button>
           </li>
         ))}
       </ul>

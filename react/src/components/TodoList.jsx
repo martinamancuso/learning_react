@@ -8,16 +8,37 @@ import { useState } from "react";
 export function TodoList() {
 
   const [todos, setTodos] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+
+  function handleInputChange(event) {
+    setInputValue(event.target.value);
+  }
+
+  function handleAddTodo() {
+    setTodos([...todos, inputValue]);
+    setInputValue("")
+  }
+
+  function resetTodos() {
+    setTodos([])
+  }
+
+  function removeTodo(index) {
+    console.log(index);
+  }
 
   return (
     <div>
       <ul>
         {todos.map((todo, index) => (
-          <li key={index}>{todo}</li>
+          <li key={index}>
+            {todo}<button onClick={() => removeTodo(index)}>Remove Todo</button>
+          </li>
         ))}
       </ul>
       <input type="text" value={inputValue} onChange={handleInputChange} />
       <button onClick={handleAddTodo}>Aggiungi Todo</button>
+      <button onClick={resetTodos}>Reset Todos</button>
     </div>
   );
 }

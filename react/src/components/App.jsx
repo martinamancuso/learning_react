@@ -1,3 +1,4 @@
+import { Welcome } from "./Welcome";
 import { TodoList } from "./TodoList";
 
 export function App() {
@@ -5,6 +6,7 @@ export function App() {
     <div>
       <h1>My Awesome Application</h1>
       <hr />
+      <Welcome name="Martina" />
       <TodoList />
     </div>
   );

@@ -3,3 +3,7 @@
   color: white;
   border: 1px solid black;
 }
+
+.app-content-hidden{
+  display: none;
+}

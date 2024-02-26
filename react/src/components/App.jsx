@@ -1,14 +1,15 @@
 import { Welcome } from "./Welcome";
 import { TodoList } from "./TodoList";
+import { Container } from "./Container";
 
 export function App() {
   return (
-    <div>
+    <Container title={<h1>My Awesome Application</h1>}>
       <h1>My Awesome Application</h1>
       <hr />
       <Welcome name="Martina" />
       <TodoList />
-    </div>
+    </Container>
   );
 }
 

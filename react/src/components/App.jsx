@@ -1,16 +1,39 @@
 import { Container } from "./Container";
+import { LanguageContext } from "./LanguageContext";
+import { Welcome } from "./Welcome";
+import { TodoList } from "./TodoList";
+import { useState } from "react";
 
+// Inserendo dei componenti all'interno di 'LanguageContext.Provider',
+// ognuno di loro diventerà discendente di 'LanguageContext.Provider'.
+
+// Per 'LanguageContext.Provider' dovremo sempre specificare una prop 'value':
+// sarà il valore reso disponibile per tutti i componenti figli / discendenti del provider
 export function App() {
+  const [language, setLanguage] = useState("en");
+
+  function handleSetLanguage(language) {
+    setLanguage(language);
+  }
+
   return (
-    <Container title={<h1>My Container Component</h1>}>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Nostrum asperiores expedita iste. 
-        Porro similique, quae, deleniti inventore asperiores ipsam 
-        incidunt distinctio iure perspiciatis voluptatum ipsum 
-        impedit facilis dolor neque harum.
-      </p>
-    </Container>
+    <div>
+      {/* funzioni inline che chiamano un'altra funzione, che impostano il valore della variabile di stato */}
+      <button onClick={() => handleSetLanguage("it")}>IT</button>
+      <button onClick={() => handleSetLanguage("en")}>EN</button>
+      <Container title={<h1>My Container Component</h1>}>
+        <LanguageContext.Provider value={language}>
+          <Welcome name="Martina" />
+          <TodoList />
+        </LanguageContext.Provider>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+          asperiores expedita iste. Porro similique, quae, deleniti inventore
+          asperiores ipsam incidunt distinctio iure perspiciatis voluptatum
+          ipsum impedit facilis dolor neque harum.
+        </p>
+      </Container>
+    </div>
   );
 }
 

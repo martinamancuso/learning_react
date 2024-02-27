@@ -1,3 +1,24 @@
+import { LanguageContext } from "./LanguageContext";
+import { Clock } from "./Clock";
+import { useState } from "react";
+
+export function App() {
+  const [language, setLanguage] = useState("en");
+
+  return (
+    <div>
+      <LanguageContext.Provider value={language}>
+        <select onChange={(e) => setLanguage(e.target.value)} value={language}>
+          <option value="en">English</option>
+          <option value="it">Italiano</option>
+        </select>
+        <Clock />
+      </LanguageContext.Provider>
+    </div>
+  );
+}
+
+/*
 import { Container } from "./Container";
 import { LanguageContext } from "./LanguageContext";
 import { Welcome } from "./Welcome";
@@ -18,7 +39,7 @@ export function App() {
 
   return (
     <div>
-      {/* funzioni inline che chiamano un'altra funzione, che impostano il valore della variabile di stato */}
+      // funzioni inline che chiamano un'altra funzione, che impostano il valore della variabile di stato
       <button onClick={() => handleSetLanguage("it")}>IT</button>
       <button onClick={() => handleSetLanguage("en")}>EN</button>
       <Container title={<h1>My Container Component</h1>}>
@@ -36,6 +57,7 @@ export function App() {
     </div>
   );
 }
+*/
 
 /* 
 import { ContainerLesson } from "./ContainerLesson";

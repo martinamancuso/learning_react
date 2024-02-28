@@ -17,7 +17,6 @@ Su questa Promise, si potranno chiamare i metodi '.then' e '.catch' o utilizzare
 - Non sappiamo che tipo di risposta otterremo.
 Per cui dovremo chiamare uno specifico metodo sulla risposta, sull'oggetto 'response', per estrarne il contenuto. 
 Esiste una funzione specifica per ogni tipo di payload (carico utile/dati trasmessi), a seconda del tipo di risposta ottenuta (json, blob, testo).
-6.57
 
 //
 

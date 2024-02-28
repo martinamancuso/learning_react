@@ -1,6 +1,7 @@
 import { LanguageContext } from "./LanguageContext";
 import { Clock } from "./Clock";
 import { useState } from "react";
+import { GithubUser } from "./GithubUser";
 
 export function App() {
   const [language, setLanguage] = useState("en");
@@ -14,6 +15,7 @@ export function App() {
         </select>
         <Clock />
       </LanguageContext.Provider>
+      <GithubUser username="martinamancuso" />
     </div>
   );
 }

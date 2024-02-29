@@ -1,10 +1,15 @@
 import { LanguageContext } from "./LanguageContext";
 import { Clock } from "./Clock";
 import { useState } from "react";
-import { GitHubUsers } from "./GitHubUsers";
+// import { GitHubUser } from "./GitHubUser";
+import { useCounter } from "../custom_hooks/useCounter";
+// import { HookCounter } from "../custom_hooks/HookCounter";
+import { HookGitHubUser } from "../custom_hooks/HookGitHubUser";
 
 export function App() {
-  const [language, setLanguage] = useState("en");
+  const [ language, setLanguage ] = useState("en");
+  const { counter, onIncrement } = useCounter(0);
+  const [ username, setUsername ] = useState('')
 
   return (
     <div>
@@ -15,7 +20,11 @@ export function App() {
         </select>
         <Clock />
       </LanguageContext.Provider>
-      <GitHubUsers />
+      {/* <GitHubUser username="martinamancuso" /> */}
+      <button onClick={onIncrement}>{counter}</button>
+      {/* <HookCounter /> */}
+      <input value={username} onChange={(e) => {setUsername(e.target.value)}} />
+      <HookGitHubUser username="martinamancuso" />
     </div>
   );
 }

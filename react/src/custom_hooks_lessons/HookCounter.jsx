@@ -1,7 +1,7 @@
 // Hook personalizzato (logica) usato all'interno della funzione (unità di presentazione)
 // Hook agnostico rispetto al proprio contenuto/propria logica
 
-import { useCounter } from "../custom_hooks/useCounter";
+import { useCounter } from "./useCounter";
 
 export function HookCounter({ initialValue = 0 }) {
   // L'hook restituiva un oggetto, per cui si farà una destrutturazione dell'oggetto, per estrarne i valori

@@ -2,9 +2,9 @@
 // import { Clock } from "./Clock";
 // import { useState } from "react";
 // import { GitHubUser } from "./GitHubUser";
-import { useCounter } from "../custom_hooks/useCounter";
-import { HookCounter } from "../custom_hooks/HookCounter";
-import { HookGitHubUser } from "../custom_hooks/HookGitHubUser";
+import { useCounter } from "../custom_hooks_lessons/useCounter";
+import { HookCounter } from "../custom_hooks_lessons/HookCounter";
+import { HookGitHubUser } from "../custom_hooks_lessons/HookGitHubUser";
 
 export function App() {
   // const [ language, setLanguage ] = useState("en");

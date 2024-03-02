@@ -2,13 +2,13 @@
 // import { Clock } from "./Clock";
 // import { useState } from "react";
 // import { GitHubUser } from "./GitHubUser";
-import { useCounter } from "../custom_hooks_lessons/useCounter";
-import { HookCounter } from "../custom_hooks_lessons/HookCounter";
-import { HookGitHubUser } from "../custom_hooks_lessons/HookGitHubUser";
+// import { useCounter } from "../custom_hooks_lessons/useCounter";
+// import { HookCounter } from "../custom_hooks_lessons/HookCounter";
+// import { HookGitHubUser } from "../custom_hooks_lessons/HookGitHubUser";
 
 export function App() {
   // const [ language, setLanguage ] = useState("en");
-  const { counter, onIncrement } = useCounter(0);
+  // const { counter, onIncrement } = useCounter(0);
   // const [ username, setUsername ] = useState('')
 
   return (
@@ -21,10 +21,10 @@ export function App() {
         <Clock />
       </LanguageContext.Provider> */}
       {/* <GitHubUser username="martinamancuso" /> */}
-      <button onClick={onIncrement}>{counter}</button>
-      <HookCounter />
+      {/* <button onClick={onIncrement}>{counter}</button>
+      <HookCounter /> */}
       {/* <input value={username} onChange={(e) => {setUsername(e.target.value)}} /> */}
-      <HookGitHubUser username="martinamancuso" />
+      {/* <HookGitHubUser username="martinamancuso" /> */}
     </div>
   );
 }

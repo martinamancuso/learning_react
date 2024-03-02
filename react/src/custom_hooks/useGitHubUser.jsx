@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-// Passiamo 'username' come parametro perché è il nome utente che desideriamo recuperare
-export function useGitHubUser(username) {
+export function useGitHubUser() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -14,16 +13,17 @@ export function useGitHubUser(username) {
       const response = await fetch(
         `https://api.github.com/users/${githubUser}`
       );
-      const data = await response.json();
+      
 
       // Gestisco l'errore, nel caso in cui lo stato della risposta sia diverso da '200'
       // Imposto l'errore su un nuovo errore, senza specificare alcun messaggio
 
-      // if (response.status !== 200) {
-      //   setError(new Error());
-      // }
-      //   setData(data);
- 
+      if (response.status !== 200) {
+        setError(new Error());
+      } else {
+        const data = await response.json();
+        setData(data);
+      }
     } catch (error) {
       setError(error);
       setData(null);

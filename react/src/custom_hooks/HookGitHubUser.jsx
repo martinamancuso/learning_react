@@ -3,7 +3,7 @@ import { useGitHubUser } from "./useGitHubUser"
 export function HookGitHubUser({ username }) {
 
   // Chiamo l'hook, passandogli l'username che desidero scaricare, destrutturandolo con le proprietà che desidero estrarre
-  const { data, error, loading, onFetchUser } = useGitHubUser(username)
+  const { data, error, loading, onFetchUser } = useGitHubUser()
 
   // Creo una funzione 'handle event' che, al clic del 'button', chiami la funzione 'onFetchUser'
   function handleGitHubUserData() {

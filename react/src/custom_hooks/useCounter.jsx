@@ -19,7 +19,10 @@ export function useCounter(initialValue = 0) {
   }
 
   // Restituiamo un oggetto, contenente chiavi/proprietà a nostra scelta,
-  // a cui assegnare i riferimenti alle funzioni scritte, per gestire gli eventi 'onClick' dei 'button'
+  // a cui assegnare i riferimenti alle funzioni scritte
+  
+  // Dall'esterno, accediamo alle funzioni attraverso le proprietà dell'oggetto,
+  // le proprietà poi 'chiameranno' le relative funzioni
   return {
     counter: counter,
     onIncrement: handleCounterIncrement,

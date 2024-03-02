@@ -1,29 +1,29 @@
-import { LanguageContext } from "./LanguageContext";
-import { Clock } from "./Clock";
-import { useState } from "react";
+// import { LanguageContext } from "./LanguageContext";
+// import { Clock } from "./Clock";
+// import { useState } from "react";
 // import { GitHubUser } from "./GitHubUser";
 import { useCounter } from "../custom_hooks/useCounter";
-// import { HookCounter } from "../custom_hooks/HookCounter";
+import { HookCounter } from "../custom_hooks/HookCounter";
 import { HookGitHubUser } from "../custom_hooks/HookGitHubUser";
 
 export function App() {
-  const [ language, setLanguage ] = useState("en");
+  // const [ language, setLanguage ] = useState("en");
   const { counter, onIncrement } = useCounter(0);
-  const [ username, setUsername ] = useState('')
+  // const [ username, setUsername ] = useState('')
 
   return (
     <div>
-      <LanguageContext.Provider value={language}>
+      {/* <LanguageContext.Provider value={language}>
         <select onChange={(e) => setLanguage(e.target.value)} value={language}>
           <option value="en">English</option>
           <option value="it">Italiano</option>
         </select>
         <Clock />
-      </LanguageContext.Provider>
+      </LanguageContext.Provider> */}
       {/* <GitHubUser username="martinamancuso" /> */}
       <button onClick={onIncrement}>{counter}</button>
-      {/* <HookCounter /> */}
-      <input value={username} onChange={(e) => {setUsername(e.target.value)}} />
+      <HookCounter />
+      {/* <input value={username} onChange={(e) => {setUsername(e.target.value)}} /> */}
       <HookGitHubUser username="martinamancuso" />
     </div>
   );

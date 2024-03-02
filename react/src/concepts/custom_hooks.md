@@ -7,7 +7,7 @@ Devono seguire le regole generali degli hook:
 - essere chiamati all'interno del livello superiore 
 - non possono essere chiamati all'interno di blocchi condizionali e cicli
 - essere chiamati sempre nello stesso ordine e nello stesso numero
-- utilizzare con convenzione della nomenclatura, iniziando con 'use'.
+- utilizzare convenzione nomenclatura, iniziando il nome con 'use'.
 
 //
 

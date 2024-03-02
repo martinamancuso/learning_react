@@ -7,18 +7,33 @@ export function useCurrentLocation() {
 
   function calculateCurrentLocation() {
     setLoading(true);
-    
-    setTimeout(() => {
-      try {
-        setCurrentLocation(5);
-      } catch (error) {
-        setError(error);
-      } finally {
-        // il finally viene chiamato a prescindere dal fatto che la funzione
-        // sia finita nel catch o no
+  
+     /* geolocation is available */
+    if ("geolocation" in navigator) {
+      /* 
+        To obtain the user's current location, you can call the 
+        getCurrentPosition() method. This initiates an asynchronous 
+        request to detect the user's position. 
+        It accepts 2 callback functions ('getCurrentPosition', funzione anonima (error)).
+        When the position is determined, the first callback 
+        function is executed. You can optionally provide a second 
+        callback function to be executed if an error occurs.
+      */
+      navigator.geolocation.getCurrentPosition((position) => {
+        setCurrentLocation({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        })
         setLoading(false);
-      }
-    }, 1000);
+      }, (error) => {
+        setError(error)
+        setLoading(false);
+      }); 
+    /* geolocation is unavailable */     
+    } else {
+      setError(new Error("Geolocation unavailable"));
+      setLoading(false);
+    }
   }
 
   return {

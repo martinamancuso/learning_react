@@ -7,8 +7,8 @@ export function CurrentLocation() {
   return (
     <div>
       <h1>Current Location</h1>
-      {currentLocation && <p>Your current location is: {currentLocation}</p>}
-      {error && <p>There has been an error.</p>}
+      {currentLocation && <p>Your current location is: {currentLocation.latitude}, {currentLocation.longitude}</p>}
+      {error && <p>There has been an error. {error.message}</p>}
       {loading && <p>Loading...</p>}
       <p><button onClick={calculateCurrentLocation}>Calculate current location</button></p>
     </div>

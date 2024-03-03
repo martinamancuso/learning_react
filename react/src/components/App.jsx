@@ -5,12 +5,27 @@
 // import { useCounter } from "../custom_hooks_lessons/useCounter";
 // import { HookCounter } from "../custom_hooks_lessons/HookCounter";
 // import { HookGitHubUser } from "../custom_hooks_lessons/HookGitHubUser";
-import { CurrentLocation } from "./CurrentLocation";
+// import { CurrentLocation } from "./CurrentLocation";
+import { useRef, useState } from "react";
+import { FilteredList } from "./FilteredList";
 
 export function App() {
   // const [ language, setLanguage ] = useState("en");
   // const { counter, onIncrement } = useCounter(0);
   // const [ username, setUsername ] = useState('')
+
+  // const [citizens, setCitizens] = useState([
+  //   { id: 1, name: "Mario", age: 32 },
+  //   { id: 2, name: "Margherita", age: 24 },
+  //   { id: 3, name: "Lucia", age: 42 },
+  // ])
+
+  // useRef utilizzato per salvare in memoria variabili che non cambieranno nel tempo
+  const friends = useRef([
+    { id: 1, name: "Mario", age: 19 },
+    { id: 2, name: "Margherita", age: 16 },
+    { id: 3, name: "Lucia", age: 42 },
+  ])
 
   return (
     <div>
@@ -26,7 +41,8 @@ export function App() {
       <HookCounter /> */}
       {/* <input value={username} onChange={(e) => {setUsername(e.target.value)}} /> */}
       {/* <HookGitHubUser username="martinamancuso" /> */}
-      <CurrentLocation />
+      {/* <CurrentLocation /> */}
+      <FilteredList people={friends.current} />
     </div>
   );
 }

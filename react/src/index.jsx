@@ -1,8 +1,8 @@
 import { createRoot } from "react-dom/client";
-import { App } from "./components/App";
 import "./index.css";
+import { Root } from "./components/Root";
 
-createRoot(document.getElementById("root")).render(<App />);
+createRoot(document.getElementById("root")).render(<Root />);
 
 // fetch("https://api.github.com/users/martinamancuso")
 //   .then(response => {

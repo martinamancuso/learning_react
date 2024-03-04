@@ -6,8 +6,12 @@
 // import { HookCounter } from "../custom_hooks_lessons/HookCounter";
 // import { HookGitHubUser } from "../custom_hooks_lessons/HookGitHubUser";
 // import { CurrentLocation } from "./CurrentLocation";
-import { useRef, useState } from "react";
-import { FilteredList } from "./FilteredList";
+// import { useRef, useState } from "react";
+// import { FilteredList } from "./FilteredList";
+import { Route, Routes } from "react-router-dom"
+import { Container } from "./Container";
+import { Welcome } from "./Welcome";
+import { Login } from "./Login";
 
 export function App() {
   // const [ language, setLanguage ] = useState("en");
@@ -21,14 +25,18 @@ export function App() {
   // ])
 
   // useRef utilizzato per salvare in memoria variabili che non cambieranno nel tempo
-  const friends = useRef([
-    { id: 1, name: "Mario", age: 19 },
-    { id: 2, name: "Margherita", age: 16 },
-    { id: 3, name: "Lucia", age: 42 },
-  ])
+  // const friends = useRef([
+  //   { id: 1, name: "Mario", age: 19 },
+  //   { id: 2, name: "Margherita", age: 16 },
+  //   { id: 3, name: "Lucia", age: 42 },
+  // ])
 
   return (
-    <div>
+    <Container>
+      <Routes>
+        <Route path="/" element={<Welcome />} />
+        <Route path="login" element={<Login />} />
+      </Routes>
       {/* <LanguageContext.Provider value={language}>
         <select onChange={(e) => setLanguage(e.target.value)} value={language}>
           <option value="en">English</option>
@@ -42,8 +50,8 @@ export function App() {
       {/* <input value={username} onChange={(e) => {setUsername(e.target.value)}} /> */}
       {/* <HookGitHubUser username="martinamancuso" /> */}
       {/* <CurrentLocation /> */}
-      <FilteredList people={friends.current} />
-    </div>
+      {/* <FilteredList people={friends.current} /> */}
+    </Container>
   );
 }
 

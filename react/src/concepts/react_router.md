@@ -1,7 +1,9 @@
 **React Router**
-Definire percorsi e rendere componenti diversi, 
-in base ai percorsi esplicitati
-(e quindi ogni volta che cambia la posizione nella barra degli indirizzi).
+
+Libreria di React 
+per definire percorsi e rendere componenti diversi, 
+in base ai percorsi esplicitati.
+(Ogni volta che cambia la posizione nella barra degli indirizzi).
 
 //
 
@@ -86,3 +88,57 @@ Cambiare il collegamento, inserito all'interno di un componente, con un pulsante
 'useNavigate' restituisce una funzione di navigazione.
 Tale funzione verrà esplicitata all'interno dell'event handler.
 Alla funzione di navigazione passeremo come argomento il percorso verso il quale spostarsi, all'accadere dell'evento di riferimento.
+
+//
+
+**Parametri**
+
+Quali dettagli devono essere visualizzati nella pagina (es: 'name' o 'id', un dettaglio di un prodotto).
+
+Inserire un 'segnaposto', per definire il relativo parametro (come valori dell'attributo 'path', nel tag 'Route' > ':name').
+(Vedi App.jsx).
+
+jsx ````
+<Container>
+  <Routes>
+   <Route path="/:name" element={<Welcome />} />
+   <Route path="login" element={<Login />} />
+  </Routes>
+</Container>
+````
+
+**useParams**
+
+L'hook useParams restistuisce un oggetto, da cui possiamo destrutturare le variabili che ci aspettiamo di ricevere.
+
+const { name } = useParams()
+const { name = 'World' } = useParams()
+
+**Nidificare e renderizzare percorsi**
+**Outlet**
+
+Ogni volta che abbiamo percorsi nidificati, possiamo utilizzare il componente 'Outlet', che viene esportato dal "react-router-dom".
+
+'Outlet' ci consente di renderizzare automaticamente i componenti annidati in un altro: ciò avviene all'interno dell'elemento principale in cui si trovano 'Outlet' e i componenti annidati. 
+(Vedi 'Catalogue.jsx')
+
+**Index Route**
+
+Viene mostrata quando non viene ricevuto alcun parametro, mostrata al posto del componente di uscita ('Outlet').
+
+In App.jsx, scrivo un altro componente 'Route', a cui passerò:
+- prop 'index', senza alcun valore > il che è uguale a scrivere 'index={true}'
+- prop 'element', per determinare quale elemento voglio che venga renderizzato, in questo caso.
+
+(Vedi 'App.jsx')
+
+**Cosa renderizzare quando nessun'altra Root è abbinata o non è valida**
+
+Possiamo usare un percorso speciale, con il valore di '*'.
+Il percorso di '*' corrisponde a tutti i percorsi che non corrispondono a nessun'altra radice.
+
+In App.jsx, scrivo un altro componente 'Route', a cui passerò:
+- prop 'path', a cui passerò il valore "*"
+- prop 'element', per determinare quale elemento voglio che venga renderizzato, in questo caso.
+
+(Vedi 'App.jsx')

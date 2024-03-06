@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { LanguageContext } from "./LanguageContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export function Welcome() {
   // Consente di accedere a qualsiasi contesto passatogli come parametro
-  const language = useContext(LanguageContext);
+  // const language = useContext(LanguageContext);
+
+  const { name = 'World' } = useParams()
 
   // 'useNavigate' restuisce una 'funzione di navigazione'
   const navigate = useNavigate()
@@ -16,7 +18,8 @@ export function Welcome() {
 
   return (
     <div>
-      <h2>{language === "en" ? "Hello, World!" : "Ciao, Mondo!"}</h2>
+      <h2>Hello, { name }!</h2>
+      {/* <h2>{language === "en" ? "Hello, World!" : "Ciao, Mondo!"}</h2> */}
       {/* <Link to="/login">Login to the app</Link> */}
       <div>
         <button onClick={handleLoginButtonClick}>Enter the app</button>

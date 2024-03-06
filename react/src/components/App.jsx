@@ -8,10 +8,12 @@
 // import { CurrentLocation } from "./CurrentLocation";
 // import { useRef, useState } from "react";
 // import { FilteredList } from "./FilteredList";
-import { Route, Routes } from "react-router-dom"
+import { Link, Route, Routes } from "react-router-dom";
 import { Container } from "./Container";
 import { Welcome } from "./Welcome";
 import { Login } from "./Login";
+import { Catalogue } from "./Catalogue";
+import { Product } from "./Product";
 
 export function App() {
   // const [ language, setLanguage ] = useState("en");
@@ -32,10 +34,33 @@ export function App() {
   // ])
 
   return (
-    <Container>
+    <Container
+      title={
+        <div>
+          <h1>My Awesome App</h1>
+          <div>
+            <Link to="/">Home</Link> | <Link to="products">Products</Link>
+          </div>
+        </div>
+      }
+    >
       <Routes>
         <Route path="/" element={<Welcome />} />
-        <Route path="login" element={<Login />} />
+        <Route
+          path="*"
+          element={
+            <div>
+              <p>Not Found</p>
+              <Link to="/">Go Home</Link>
+            </div>
+          }
+        ></Route>
+        <Route path="products" element={<Catalogue />}>
+          <Route index element={<p>Please choose a product</p>} />
+          <Route path=":id" element={<Product />} />
+        </Route>
+        {/* <Route path="/:name" element={<Welcome />} />
+        <Route path="login" element={<Login />} /> */}
       </Routes>
       {/* <LanguageContext.Provider value={language}>
         <select onChange={(e) => setLanguage(e.target.value)} value={language}>

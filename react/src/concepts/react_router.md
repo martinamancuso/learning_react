@@ -1,7 +1,6 @@
 **React Router**
 
-Libreria di React 
-per definire percorsi e rendere componenti diversi, 
+Definire percorsi e rendere componenti diversi, 
 in base ai percorsi esplicitati.
 (Ogni volta che cambia la posizione nella barra degli indirizzi).
 
@@ -16,16 +15,16 @@ Installeremo il pacchetto React Router DOM perché lavoreremo all'interno del br
 
 //
 
-**1**
+# 1
 Installare il pacchetto React Router DOM
 'npm install --save react-router-dom'
 
-**2**
+# 2
 Per utilizzare la libreria appena installata, 
 dobbiamo includere il 'root component' 
 all'interno del componente 'BrowserRouter'.
 
-**2.1**
+# 2.1
 Creiamo un nuovo componente chiamato 'Root',
 che avvolgerà il componente 'App'
 all'interno del componente 'BrowserRouter'.
@@ -36,10 +35,10 @@ Creare due componenti distinti, 'Root' e 'App':
 - 'Root' per inserire contesti, fornitori e componenti per avvolgere il componente 'App'
 - 'App' in cui scrivere la logica dell'applicazione
 
-**3**
+# 3
 Importiamo e renderizziamo il componente 'Root', al posto del componente 'App', all'interno del file 'index.jsx'.
 
-**4**
+# 4
 - Definiamo le 'radici'
 Radice = componente che viene renderizzato 
 ogni volta che il pecorso, all'interno della barra degli indirizzi nel nostro browser, 
@@ -98,15 +97,6 @@ Quali dettagli devono essere visualizzati nella pagina (es: 'name' o 'id', un de
 Inserire un 'segnaposto', per definire il relativo parametro (come valori dell'attributo 'path', nel tag 'Route' > ':name').
 (Vedi App.jsx).
 
-jsx ````
-<Container>
-  <Routes>
-   <Route path="/:name" element={<Welcome />} />
-   <Route path="login" element={<Login />} />
-  </Routes>
-</Container>
-````
-
 **useParams**
 
 L'hook useParams restistuisce un oggetto, da cui possiamo destrutturare le variabili che ci aspettiamo di ricevere.
@@ -114,13 +104,18 @@ L'hook useParams restistuisce un oggetto, da cui possiamo destrutturare le varia
 const { name } = useParams()
 const { name = 'World' } = useParams()
 
+//
+
 **Nidificare e renderizzare percorsi**
+
 **Outlet**
 
 Ogni volta che abbiamo percorsi nidificati, possiamo utilizzare il componente 'Outlet', che viene esportato dal "react-router-dom".
 
 'Outlet' ci consente di renderizzare automaticamente i componenti annidati in un altro: ciò avviene all'interno dell'elemento principale in cui si trovano 'Outlet' e i componenti annidati. 
 (Vedi 'Catalogue.jsx')
+
+//
 
 **Index Route**
 
@@ -131,6 +126,8 @@ In App.jsx, scrivo un altro componente 'Route', a cui passerò:
 - prop 'element', per determinare quale elemento voglio che venga renderizzato, in questo caso.
 
 (Vedi 'App.jsx')
+
+//
 
 **Cosa renderizzare quando nessun'altra Root è abbinata o non è valida**
 

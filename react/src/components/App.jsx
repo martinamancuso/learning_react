@@ -14,6 +14,7 @@ import { Welcome } from "./Welcome";
 import { Login } from "./Login";
 import { Catalogue } from "./Catalogue";
 import { Product } from "./Product";
+import { GithubUsers2 } from "./GitHubUsers2";
 
 export function App() {
   // const [ language, setLanguage ] = useState("en");
@@ -39,7 +40,7 @@ export function App() {
         <div>
           <h1>My Awesome App</h1>
           <div>
-            <Link to="/">Home</Link> | <Link to="products">Products</Link>
+            <Link to="/">Home</Link> | <Link to="products">Products</Link> | <Link to="users">Users</Link>
           </div>
         </div>
       }
@@ -61,6 +62,7 @@ export function App() {
         </Route>
         {/* <Route path="/:name" element={<Welcome />} />
         <Route path="login" element={<Login />} /> */}
+        <Route path="users" element={<GithubUsers2 />}></Route>
       </Routes>
       {/* <LanguageContext.Provider value={language}>
         <select onChange={(e) => setLanguage(e.target.value)} value={language}>

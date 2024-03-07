@@ -16,3 +16,9 @@ Da terminale, npm install swr
 Importare l'hook SWR dalla libreria, useSWR:
 restituisce un oggetto da destrutturare
 (Vedi 'GithubUsers2.jsx')
+
+// 
+
+L'oggetto restituito dalla funzione SWR è un oggetto che contiene:
+- i dati restituiti dal server 
+- o i dati salvati nella memoria cache

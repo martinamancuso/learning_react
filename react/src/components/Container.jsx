@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function Container({ title, children }) {
+export function Container({ title, nav, children }) {
   const [collapsed, setCollapsed] = useState(false);
 
   function handleCollapsed(event) {
@@ -27,6 +27,8 @@ export function Container({ title, children }) {
       <a href="#" onClick={handleCollapsed}>
         {title}
       </a>
+    
+      {nav}
 
       <div style={{ display: collapsed ? "none" : "block" }}>
         {children}

@@ -36,12 +36,11 @@ export function App() {
 
   return (
     <Container
-      title={
+      title={<h1>My Awesome App</h1>}
+      nav={
         <div>
-          <h1>My Awesome App</h1>
-          <div>
-            <Link to="/">Home</Link> | <Link to="products">Products</Link> | <Link to="users">Users</Link>
-          </div>
+          <Link to="/">Home</Link> | <Link to="products">Products</Link> |{" "}
+          <Link to="users">Users</Link>
         </div>
       }
     >

@@ -2,10 +2,11 @@ import {useGitHubUsers2} from "../custom_hooks_exercises/useGitHubUsers2"
 
 export function GithubUsers2() {
 
-  const { users, error, isLoading} = useGitHubUsers2()
+  const { users, error, isLoading, onRefresh } = useGitHubUsers2()
 
   return (
     <div>
+      <button onClick={onRefresh}>Refresh</button>
       {/* {!data && !error && <h3>Loading...</h3>} */}
       {isLoading && !error && <h3>Loading...</h3>}
       {error && <h3>An error has occurred</h3>}

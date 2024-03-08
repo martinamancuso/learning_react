@@ -22,3 +22,15 @@ restituisce un oggetto da destrutturare
 L'oggetto restituito dalla funzione SWR è un oggetto che contiene:
 - i dati restituiti dal server 
 - o i dati salvati nella memoria cache
+
+// 
+
+**Funzione 'mutate()'**
+
+Funzione di aggiornamento.
+
+Utilizzata per aggiornare la cache locale o effettuare un re-fetch dei dati.
+
+In generale, useSWR avrà sempre un valore all'interno della cache locale, quindi vedremo il valore che abbiamo memorizzato nella cache.
+Quando la richiesta all'API degli utenti viene completata, i nuovi dati sovrascriveranno quelli precedentemente memorizzati nella cache.
+

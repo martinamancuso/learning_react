@@ -1,33 +1,21 @@
-import { useState } from "react";
+import useSWR from "swr";
 
-export function useGitHubUser() {
+// const fetcher = url => fetch(url).then(response => response.json())
 
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+export function useGitHubUser(githubUser) {
 
-  async function fetchGitHubUser(githubUser) {
-    setLoading(true);
-    setError(null);
+  const { data, error, mutate } = useSWR(`https://api.github.com/users/${githubUser}`)
+  // Precedente: const { data, error, mutate } = useSWR(`https://api.github.com/users/${githubUser}`, fetcher)
+  // Vedi 'Root.jsx'
 
-    try {
-      const response = await fetch(
-        `https://api.github.com/users/${githubUser}`
-      );
-      const data = await response.json();
-
-      setData(data);
-    } catch (error) {
-      setError(error);
-      setData(null);
-    } finally {
-      setLoading(false);
-    }
+  // Creo questa funzione per chiamare nuovamente 'mutate()', che chiamerà nuovamente l'API
+  function fetchGitHubUser() {
+    mutate()
   }
 
   return {
     data,
-    loading,
+    loading: !data && !error,
     error,
     fetchGitHubUser
   }

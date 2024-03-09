@@ -1,10 +1,20 @@
 import useSWR from "swr";
 
-const fetcher = (url) => fetch(url).then((response) => response.json());
+// const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export function useGitHubUsers2() {
 
-  const { data, error, mutate } = useSWR(`https://api.github.com/users`, fetcher);
+  const { data, error, mutate } = useSWR(`https://api.github.com/users`)
+  // Precedente: const { data, error, mutate } = useSWR(`https://api.github.com/users`, fetcher);
+
+  // Gestire opzioni di 'useSWR':
+  /* Posso passare un secondo parametro a 'useSWR', un oggetto, contenente proprietà 'pre-built':
+  {
+    refreshInterval,         > impostare un valore di intervallo in ms, per aggiornare i dati ad intervalli regolari
+    refreshWhenHidden,       > aggiornare i dati, quando il browser utente è nascosto
+    revalidateOnFocus: true  > riconvalidare i dati ogni, volta che il browser utente torna attivo (se 'false', ciò non accadrà)
+  });
+  */
 
   // Creo questa nuova funzione per effettuare una nuova richiesta di recupero dati dall'API GitHub
   // Questi nuovi dati li troverò all'interno dell'oggetto 'data'

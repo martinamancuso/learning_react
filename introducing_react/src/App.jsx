@@ -1,3 +1,11 @@
+import { Counter } from "./Counter";
+import { FetchRecipes } from "./FetchRecipes";
+
 export function App() {
-  return <></>;
+  return (
+    <>
+      <Counter />
+      <FetchRecipes />
+    </>
+  );
 }
